@@ -4,7 +4,7 @@
 #include "gps.h"
 
 void test_read_lat_long() {
-  FILE* file = fopen("testdata/gps_example_1", "r");
+  FILE* file = fopen("../ testdata/gps_example_1", "r");
   assert(file);
 
   double lat, lon;
@@ -13,7 +13,7 @@ void test_read_lat_long() {
   assert(read_lat_long(file, &lat, &lon));
   assert(abs(lat - 39.315828) < 0.000001);
   assert(abs(lon - -120.167838) < 0.000001);
-  
+
   /* Check there are 132 lines total */
   for (int i = 0; i < 131; ++i) {
     assert(read_lat_long(file, &lat, &lon));
@@ -31,13 +31,13 @@ void test_bearing_north() {
 
   double bearing = get_bearing(f);
   assert(abs(bearing - 0.0) < 0.01);
-  
+
   /* Velocity should be 0.0001 x units per timestep */
   double dlat, dlon;
   get_velocity(f, &dlat, &dlon);
   assert(abs(dlat - 0.0001) < 0.00001);
   assert(abs(dlon) < 0.00001);
-  
+
   free_filter(f);
 }
 
@@ -58,7 +58,7 @@ void test_bearing_east() {
      are traveling at about 25 miles per hour. */
   double mph = get_mph(f);
   assert(abs(mph - 25.0) < 2.0);
-  
+
   free_filter(f);
 }
 
@@ -70,7 +70,7 @@ void test_bearing_south() {
 
   double bearing = get_bearing(f);
   assert(abs(bearing - 180.0) < 0.01);
-  
+
   free_filter(f);
 }
 
@@ -82,7 +82,7 @@ void test_bearing_west() {
 
   double bearing = get_bearing(f);
   assert(abs(bearing - 270.0) < 0.01);
-  
+
   free_filter(f);
 }
 
@@ -100,7 +100,7 @@ void test_variable_timestep() {
   get_velocity(f, &dlat, &dlon);
   assert(abs(dlat) < 0.000001);
   assert(abs(dlon - 0.0001) < 0.000001);
-  
+
   free_filter(f);
 }
 
