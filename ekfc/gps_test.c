@@ -4,7 +4,7 @@
 #include "gps.h"
 
 void test_read_lat_long() {
-  FILE* file = fopen("../ testdata/gps_example_1", "r");
+  FILE* file = fopen("../testdata/gps_example_1", "r");
   assert(file);
 
   double lat, lon;

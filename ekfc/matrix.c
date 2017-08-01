@@ -4,7 +4,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include "matrix.h"
 
 /* This could be reduced to a single malloc if it mattered. */
